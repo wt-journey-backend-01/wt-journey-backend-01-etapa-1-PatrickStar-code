@@ -36,6 +36,8 @@ app.get("/sugestao", (req, res) => {
       <p>Ingredientes: ${ingredientes}</p>
       </div>
       </section>
+      <a href="/">Voltar para a página inicial</a>
+
     </body>
   </html>
   `;
@@ -71,7 +73,7 @@ app.get("/contato-recebido", (req, res) => {
     `;
     res.status(200).send(html);
   } else {
-    redirect("/404");
+    res.redirect("/404");
   }
 });
 
