@@ -5,8 +5,6 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-let ultimoContato = null;
-
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -51,15 +49,7 @@ app.get("/contato", (req, res) => {
 ("");
 
 app.post("/contato", (req, res) => {
-  ultimoContato = req.body;
-  res.redirect("/contato-recebido");
-});
-
-app.get("/contato-recebido", (req, res) => {
-  if (!ultimoContato) {
-    res.redirect("/404");
-    return;
-  }
+  const contato = req.body;
   const html = `
     <html>
       <head>
@@ -72,10 +62,10 @@ app.get("/contato-recebido", (req, res) => {
 
                     <div class="card">
 
-        <p>Nome: ${ultimoContato.nome}</p>
-        <p>E-mail: ${ultimoContato.email}</p>
-        <p>Assunto: ${ultimoContato.assunto}</p>
-        <p>Mensagem: ${ultimoContato.mensagem}</p>
+        <p>Nome: ${contato.nome}</p>
+        <p>E-mail: ${contato.email}</p>
+        <p>Assunto: ${contato.assunto}</p>
+        <p>Mensagem: ${contato.mensagem}</p>
         </div>
                 </section>
 
