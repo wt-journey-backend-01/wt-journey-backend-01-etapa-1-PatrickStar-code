@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="form_section">
+      <h2>Sugira um novo sabor!</h2>
+      <form action="/contato" method="post">
+        <input type="text" name="nome" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu email" required />
+        <input type="text" name="assunto" placeholder="Assunto" />
+        <textarea
+          name="assunto"
+          rows="3"
+          placeholder="Digite a mensagem aqui"
+          required
+        ></textarea>
+        <button type="submit">Enviar Sugestão</button>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBurger</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🍔 DevBurger</h1>
+      <p>Cardápio com os lanches mais irados do mundo Dev!</p>
+    </header>
+
+    <section class="menu">
+      <div class="card">
+        <h2>JS Bacon</h2>
+        <p>
+          Pão de brioche, hamburger artesanal, bacon crocante e molho
+          JavaScript.
+        </p>
+      </div>
+      <div class="card">
+        <h2>React Burger</h2>
+        <p>
+          Pão preto, burger duplo, queijo derretido e cebola caramelizada com
+          hooks de sabor.
+        </p>
+      </div>
+      <div class="card">
+        <h2>Bug Veggie</h2>
+        <p>
+          Hamburger de grão-de-bico, alface fresca e molho vegano... sem bugs!
+        </p>
+      </div>
+    </section>
+
+    <section class="form_section">
+      <h2>Sugira um novo sabor!</h2>
+      <form action="/sugestao" method="GET">
+        <input type="text" name="nome" placeholder="Seu nome" required />
+        <textarea
+          name="ingredientes"
+          rows="3"
+          placeholder="Digite os ingredientes do lanche"
+        ></textarea>
+        <button type="submit">Enviar Sugestão</button>
+      </form>
+    </section>
+  </body>
+</html>
