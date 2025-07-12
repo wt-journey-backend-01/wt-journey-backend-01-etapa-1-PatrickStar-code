@@ -61,14 +61,14 @@ h1 {
   margin-top: 20px;
 }
 
-.form_section a {
+a {
   display: block;
   margin-top: 10px;
   color: #ff5e57;
   text-decoration: none;
 }
 
-.form_section a:hover {
+a:hover {
   text-decoration: underline;
 }
 

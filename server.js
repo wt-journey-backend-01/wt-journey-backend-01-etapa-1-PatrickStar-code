@@ -11,6 +11,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "/views/index.html"));
@@ -55,8 +56,10 @@ app.post("/contato", (req, res) => {
 });
 
 app.get("/contato-recebido", (req, res) => {
-  if (ultimoContato) {
-    const html = `
+  if (!ultimoContato) {
+    res.redirect("/");
+  }
+  const html = `
     <html>
       <head>
         <title>Contato Recebido</title>
@@ -64,17 +67,22 @@ app.get("/contato-recebido", (req, res) => {
       </head>
       <body>
         <h1>Contato Recebido</h1>
+                    <section class="menu">
+
+                    <div class="card">
+
         <p>Nome: ${ultimoContato.nome}</p>
         <p>E-mail: ${ultimoContato.email}</p>
         <p>Assunto: ${ultimoContato.assunto}</p>
         <p>Mensagem: ${ultimoContato.mensagem}</p>
+        </div>
+                </section>
+
+        <a href="/">Voltar para a página inicial</a>
       </body>
     </html>
     `;
-    res.status(200).send(html);
-  } else {
-    res.redirect("/404");
-  }
+  res.status(200).send(html);
 });
 
 app.get("/api/lanches", function (req, res) {
