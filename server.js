@@ -57,7 +57,8 @@ app.post("/contato", (req, res) => {
 
 app.get("/contato-recebido", (req, res) => {
   if (!ultimoContato) {
-    res.redirect("/");
+    res.redirect("/404");
+    return;
   }
   const html = `
     <html>
@@ -90,6 +91,10 @@ app.get("/api/lanches", function (req, res) {
     path.join(__dirname, "public/data/lanches.json")
   );
   res.status(200).json(JSON.parse(data));
+});
+
+app.get("/404", (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "public/404.html"));
 });
 
 app.use(function (req, res, next) {
